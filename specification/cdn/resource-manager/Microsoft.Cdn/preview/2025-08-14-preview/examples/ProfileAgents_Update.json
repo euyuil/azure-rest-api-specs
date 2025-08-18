@@ -1,0 +1,58 @@
+{
+  "parameters": {
+    "api-version": "2025-08-14-preview",
+    "subscriptionId": "subid",
+    "resourceGroupName": "RG",
+    "profileName": "profile1",
+    "agentName": "agent1",
+    "profileAgentUpdateParameters": {
+      "properties": {
+        "customDomains": [
+          {
+            "customDomain": "/subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/customDomains/newdomain.com",
+            "agentPath": "/assistant",
+            "mcpPath": "/api"
+          }
+        ]
+      }
+    }
+  },
+  "responses": {
+    "200": {
+      "body": {
+        "id": "/subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/agents/agent1",
+        "name": "agent1",
+        "type": "Microsoft.Cdn/profiles/agents",
+        "properties": {
+          "webAgentId": "/subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/webAgents/webagent1",
+          "customDomains": [
+            {
+              "customDomain": "/subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/customDomains/newdomain.com",
+              "agentPath": "/assistant",
+              "mcpPath": "/api"
+            }
+          ],
+          "provisioningState": "Succeeded"
+        }
+      }
+    },
+    "202": {
+      "body": {
+        "id": "/subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/agents/agent1",
+        "name": "agent1",
+        "type": "Microsoft.Cdn/profiles/agents",
+        "properties": {
+          "webAgentId": "/subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/webAgents/webagent1",
+          "customDomains": [
+            {
+              "customDomain": "/subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/customDomains/newdomain.com",
+              "agentPath": "/assistant",
+              "mcpPath": "/api"
+            }
+          ],
+          "provisioningState": "Updating"
+        }
+      }
+    }
+  }
+}
