@@ -1,0 +1,61 @@
+{
+  "parameters": {
+    "subscriptionId": "subid",
+    "resourceGroupName": "RG",
+    "webAgentName": "myWebAgent1",
+    "api-version": "2025-08-14-preview"
+  },
+  "responses": {
+    "200": {
+      "body": {
+        "value": [
+          {
+            "name": "myKnowledgeSource1",
+            "id": "/subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/webAgents/myWebAgent1/knowledgeSources/myKnowledgeSource1",
+            "type": "Microsoft.Cdn/webAgents/knowledgeSources",
+            "properties": {
+              "description": "Website knowledge source for FAQ content",
+              "type": "URL",
+              "url": "https://example.com/faq",
+              "updateFrequency": "Hourly",
+              "parameters": {
+                "maxDepth": "2",
+                "includeSubdomains": "false",
+                "followRedirects": "true"
+              },
+              "priority": 1,
+              "enabledForMcp": true,
+              "enabledForEndUsers": true,
+              "enabledState": "Enabled",
+              "lastUpdatedTime": "2025-08-14T10:00:00Z",
+              "provisioningState": "Succeeded"
+            }
+          },
+          {
+            "name": "myKnowledgeSource2",
+            "id": "/subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/webAgents/myWebAgent1/knowledgeSources/myKnowledgeSource2",
+            "type": "Microsoft.Cdn/webAgents/knowledgeSources",
+            "properties": {
+              "description": "Document knowledge source for product manuals",
+              "type": "Document",
+              "url": "https://storage.azure.com/documents",
+              "updateFrequency": "Daily",
+              "parameters": {
+                "fileTypes": "pdf,docx,md",
+                "maxFileSizeMB": "10",
+                "includeMetadata": "true"
+              },
+              "priority": 2,
+              "enabledForMcp": true,
+              "enabledForEndUsers": false,
+              "enabledState": "Enabled",
+              "lastUpdatedTime": "2025-08-14T09:30:00Z",
+              "provisioningState": "Succeeded"
+            }
+          }
+        ],
+        "nextLink": null
+      }
+    }
+  }
+}
