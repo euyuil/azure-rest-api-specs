@@ -3377,7 +3377,7 @@
           "description": "List of custom domains associated with this agent link.",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/CustomDomainReferencePath"
+            "$ref": "#/definitions/ResourceReference"
           }
         },
         "provisioningState": {
@@ -3437,7 +3437,7 @@
           "description": "List of custom domains associated with this agent link.",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/CustomDomainReferencePath"
+            "$ref": "#/definitions/ResourceReference"
           }
         }
       }
@@ -3452,27 +3452,6 @@
           "readOnly": true
         }
       }
-    },
-    "CustomDomainReferencePath": {
-      "description": "Custom domain reference with agent and MCP path mappings.",
-      "type": "object",
-      "properties": {
-        "customDomain": {
-          "description": "Reference to the custom domain resource.",
-          "$ref": "#/definitions/ResourceReference"
-        },
-        "chatPath": {
-          "description": "The path prefix for chat requests on this custom domain.",
-          "type": "string"
-        },
-        "mcpServerPath": {
-          "description": "The path prefix for MCP server requests on this custom domain.",
-          "type": "string"
-        }
-      },
-      "required": [
-        "customDomain"
-      ]
     },
     "ProfileUpdateParameters": {
       "type": "object",

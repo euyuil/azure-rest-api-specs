@@ -9,9 +9,7 @@
       "properties": {
         "customDomains": [
           {
-            "customDomain": "/subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/customDomains/newdomain.com",
-            "agentPath": "/assistant",
-            "mcpPath": "/api"
+            "id": "/subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/customDomains/newdomain.com"
           }
         ]
       }
@@ -24,12 +22,12 @@
         "name": "agent1",
         "type": "Microsoft.Cdn/profiles/agents",
         "properties": {
-          "webAgentId": "/subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/webAgents/webagent1",
+          "webAgent": {
+            "id": "/subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/webAgents/webagent1"
+          },
           "customDomains": [
             {
-              "customDomain": "/subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/customDomains/newdomain.com",
-              "agentPath": "/assistant",
-              "mcpPath": "/api"
+              "id": "/subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/customDomains/newdomain.com"
             }
           ],
           "provisioningState": "Succeeded"
@@ -42,12 +40,12 @@
         "name": "agent1",
         "type": "Microsoft.Cdn/profiles/agents",
         "properties": {
-          "webAgentId": "/subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/webAgents/webagent1",
+          "webAgent": {
+            "id": "/subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/webAgents/webagent1"
+          },
           "customDomains": [
             {
-              "customDomain": "/subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/customDomains/newdomain.com",
-              "agentPath": "/assistant",
-              "mcpPath": "/api"
+              "id": "/subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/customDomains/newdomain.com"
             }
           ],
           "provisioningState": "Updating"

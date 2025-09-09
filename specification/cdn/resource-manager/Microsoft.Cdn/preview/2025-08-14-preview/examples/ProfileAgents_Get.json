@@ -13,14 +13,12 @@
         "name": "agent1",
         "type": "Microsoft.Cdn/profiles/agents",
         "properties": {
-          "webAgentReference": {
+          "webAgent": {
             "id": "/subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/webAgents/webagent1"
           },
           "customDomains": [
             {
-              "customDomain": "/subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/customDomains/mydomain.com",
-              "agentPath": "/chat",
-              "mcpPath": "/mcp"
+              "id": "/subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/customDomains/mydomain.com"
             }
           ],
           "provisioningState": "Succeeded"

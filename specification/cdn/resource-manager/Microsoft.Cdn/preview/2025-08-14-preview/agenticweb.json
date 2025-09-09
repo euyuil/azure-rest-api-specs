@@ -732,6 +732,13 @@
           "format": "int32",
           "minimum": 1
         },
+        "paths": {
+          "description": "List of paths associated with the web agent.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AgentPath"
+          }
+        },
         "profileAgentLinks": {
           "description": "References to agent links in CDN profiles.",
           "type": "array",
@@ -755,21 +762,6 @@
             "name": "ProvisioningState",
             "modelAsString": true
           }
-        },
-        "resourceState": {
-          "title": "Resource status of the web agent.",
-          "readOnly": true,
-          "enum": [
-            "Creating",
-            "Running",
-            "Stopped",
-            "Deleting"
-          ],
-          "type": "string",
-          "x-ms-enum": {
-            "name": "WebAgentResourceState",
-            "modelAsString": true
-          }
         }
       }
     },
@@ -789,6 +781,13 @@
           "type": "integer",
           "format": "int32",
           "minimum": 1
+        },
+        "paths": {
+          "description": "List of paths associated with the web agent.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AgentPath"
+          }
         }
       }
     },
@@ -847,9 +846,8 @@
           "description": "Format or origin of the knowledge source.",
           "type": "string",
           "enum": [
-            "URL",
-            "Document",
-            "RSS",
+            "SchemaOrgMarkup",
+            "RssFeeds",
             "Sitemap"
           ],
           "x-ms-enum": {
@@ -862,42 +860,22 @@
           "type": "string"
         },
         "updateFrequency": {
-          "description": "Specifies how often the knowledge source is crawled (ISO 8601 Duration).",
-          "type": "string"
-        },
-        "sourceSettings": {
-          "description": "Type-specific configuration settings for the knowledge source (e.g., authentication details, crawling options, format specifications).",
-          "type": "object",
-          "additionalProperties": true
-        },
-        "priority": {
-          "description": "Optional field indicating the relative importance of the source.",
-          "type": "integer",
-          "format": "int32",
-          "minimum": 1,
-          "maximum": 1000
-        },
-        "enabledForMcp": {
-          "description": "A Boolean flag indicating whether the knowledge source is enabled for MCP server.",
-          "type": "boolean",
-          "default": true
-        },
-        "enabledForEndUsers": {
-          "description": "Whether the knowledge source is visible for end-users. Otherwise, the knowledge source can only be previewed.",
-          "type": "boolean",
-          "default": true
-        },
-        "enabledState": {
-          "description": "Describes if the knowledge source is in enabled or disabled state.",
+          "description": "Specifies how often the knowledge source is crawled.",
           "type": "string",
           "enum": [
-            "Disabled",
-            "Enabled"
+            "Hourly",
+            "Daily"
           ],
           "x-ms-enum": {
-            "name": "KnowledgeSourceEnabledState",
+            "name": "UpdateFrequency",
             "modelAsString": true
           }
+        },
+        "relevance": {
+          "description": "Required field indicating the relative importance of the source.",
+          "type": "integer",
+          "format": "int32",
+          "minimum": 0
         },
         "lastUpdatedTime": {
           "description": "The last time the knowledge source was updated.",
@@ -924,7 +902,8 @@
       },
       "required": [
         "type",
-        "url"
+        "url",
+        "relevance"
       ]
     },
     "KnowledgeSourcePropertiesUpdateParameters": {
@@ -939,40 +918,22 @@
           "type": "string"
         },
         "updateFrequency": {
-          "description": "Specifies how often the knowledge source is crawled (ISO 8601 Duration).",
-          "type": "string"
-        },
-        "sourceSettings": {
-          "description": "Type-specific configuration settings for the knowledge source (e.g., authentication details, crawling options, format specifications).",
-          "type": "object",
-          "additionalProperties": true
-        },
-        "priority": {
-          "description": "Optional field indicating the relative importance of the source.",
-          "type": "integer",
-          "format": "int32",
-          "minimum": 1,
-          "maximum": 1000
-        },
-        "enabledForMcp": {
-          "description": "A Boolean flag indicating whether the knowledge source is enabled for MCP server.",
-          "type": "boolean"
-        },
-        "enabledForEndUsers": {
-          "description": "Whether the knowledge source is visible for end-users. Otherwise, the knowledge source can only be previewed.",
-          "type": "boolean"
-        },
-        "enabledState": {
-          "description": "Describes if the knowledge source is in enabled or disabled state.",
+          "description": "Specifies how often the knowledge source is crawled.",
           "type": "string",
           "enum": [
-            "Disabled",
-            "Enabled"
+            "Hourly",
+            "Daily"
           ],
           "x-ms-enum": {
-            "name": "KnowledgeSourceEnabledState",
+            "name": "UpdateFrequency",
             "modelAsString": true
           }
+        },
+        "relevance": {
+          "description": "Required field indicating the relative importance of the source.",
+          "type": "integer",
+          "format": "int32",
+          "minimum": 0
         }
       }
     },
@@ -996,6 +957,32 @@
           "readOnly": true
         }
       }
+    },
+    "AgentPath": {
+      "description": "Defines a path configuration for a web agent.",
+      "type": "object",
+      "properties": {
+        "pathType": {
+          "description": "The type of the path.",
+          "type": "string",
+          "enum": [
+            "Chat",
+            "McpServer"
+          ],
+          "x-ms-enum": {
+            "name": "AgentPathType",
+            "modelAsString": true
+          }
+        },
+        "path": {
+          "description": "The actual path value.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "pathType",
+        "path"
+      ]
     }
   },
   "parameters": {
